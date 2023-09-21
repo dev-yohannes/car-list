@@ -15,8 +15,13 @@
   background-color: darkcyan;
   padding: 20px;
   height: 80%;
-  width: 35%;
+  width: 25%;
   margin: auto;
+}
+
+.container div h3 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .container div input {
@@ -25,4 +30,9 @@
 
 .container div button {
   padding: 0px 5px;
+}
+
+#car-list {
+  border: 1px dotted cyan;
+  margin: 5px 0px;
 }
