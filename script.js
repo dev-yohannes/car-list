@@ -3,6 +3,7 @@ const addCarButton = document.querySelector("#add-car-button");
 const searchCarInput = document.querySelector("#search-car-input");
 const searchCarButton = document.querySelector("#search-car-button");
 const carList = document.querySelector("#car-list");
+const searchedCarList = document.querySelector("#searched-car-list");
 
 carListArray = [];
 
@@ -34,4 +35,17 @@ document.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     mainConditional();
   }
+});
+
+//
+//
+
+const searchingCar = () => {
+  if (carListArray.includes(searchCarInput.value)) {
+    searchedCarList.textContent = searchCarInput.value;
+  }
+};
+
+searchCarButton.addEventListener("click", () => {
+  searchingCar();
 });
