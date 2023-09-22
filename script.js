@@ -8,18 +8,21 @@ carListArray = [];
 
 const mainConditional = () => {
   const slicedCarName = addCarInput.value.trim();
+
   if (addCarInput.value === "") {
     alert("Please enter a value");
   } else if (carListArray.includes(slicedCarName)) {
-    alert("Sorry item already exist on the list");
+    alert("Sorry, Item already exist on the list");
   } else {
     carListArray.push(slicedCarName);
+
+    const newLi = document.createElement("li");
+    newLi.textContent = slicedCarName;
+    newLi.style.listStyle = "none";
+    carList.appendChild(newLi);
+
+    addCarInput.value = "";
     console.log(carListArray);
-    for (let i = 0; i < carListArray.lenght; i++) {
-      carList.innerHTML = "hello";
-      console.log("in loop");
-    }
-    // carList.innerHTML = slicedCarName;
   }
 };
 
