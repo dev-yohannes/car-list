@@ -7,45 +7,57 @@ const searchedCarList = document.querySelector("#searched-car-list");
 
 carListArray = [];
 
-const mainConditional = () => {
+const addingCarToArray = () => {
   const slicedCarName = addCarInput.value.trim();
 
+  carListArray.push(slicedCarName);
+
+  const newLi = document.createElement("li");
+  newLi.textContent = slicedCarName;
+  newLi.style.listStyle = "none";
+  carList.appendChild(newLi);
+};
+
+const checkInput = () => {
   if (addCarInput.value === "") {
     alert("Please enter a value");
   } else if (carListArray.includes(slicedCarName)) {
     alert("Sorry, Item already exist on the list");
   } else {
-    carListArray.push(slicedCarName);
-
-    const newLi = document.createElement("li");
-    newLi.textContent = slicedCarName;
-    newLi.style.listStyle = "none";
-    carList.appendChild(newLi);
-
+    addingCarToArray();
     addCarInput.value = "";
-    console.log(carListArray);
   }
 };
 
 addCarButton.addEventListener("click", function () {
-  mainConditional();
+  // addingCarToArray();
+  checkInput();
 });
 
 document.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    mainConditional();
+    // addingCarToArray();
+    checkInput();
   }
 });
 
 //
 //
 
-const searchingCar = () => {
-  if (carListArray.includes(searchCarInput.value)) {
-    searchedCarList.textContent = searchCarInput.value;
-  }
-};
+// const searchingCarEvent = (e) => {
+//   console.log("hello", e);
 
-searchCarButton.addEventListener("click", () => {
-  searchingCar();
-});
+//   // if (carListArray.includes(searchCarInput.value)) {
+//   //   searchedCarList.textContent = searchCarInput.value;
+//   // }
+// };
+
+// const searchingCar = () => {
+//   searchCarInput.addEventListener("keyup", (searchingCarEvent) => {
+//     searchingCarEvent();
+//   });
+// };
+
+// searchCarButton.addEventListener("click", () => {
+//   searchingCar();
+// });
